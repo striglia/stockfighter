@@ -67,19 +67,16 @@ class Stockfighter(object):
             stock=stock,
         )
         data = {
-          "account": self.account,
-          "venue": self.venue,
           "stock": stock,
+          "venue": self.venue,
+          "account": self.account,
           "qty": qty,
           "direction": direction,
           "orderType": order_type,
         }
         url = urljoin(self.base_url, url_fragment)
-        resp = requests.post(url, data=data, headers=self.headers)
-        try:
-            return resp.json()
-        except:
-            import pdb; pdb.set_trace()
+        resp = requests.post(url, json=data, headers=self.headers)
+        return resp.json()
 
     def quote_for_stock(self, stock):
         """Get a quick look at the most recent trade information for a stock.
