@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
-from future.moves.urllib.parse import urlparse
+from six.moves.urllib.parse import urljoin
 import requests
 
 
@@ -25,7 +25,7 @@ class Stockfighter(object):
         
         https://starfighter.readme.io/docs/heartbeat
         """
-        url = urlparse.urljoin(self.base_url, 'heartbeat')
+        url = urljoin(self.base_url, 'heartbeat')
         return requests.get(url).json()['ok']
 
     def venue_healthcheck(self):
@@ -33,7 +33,7 @@ class Stockfighter(object):
         
         https://starfighter.readme.io/docs/venue-healthcheck
         """
-        url = urlparse.urljoin(self.base_url, 'venues/TESTEX/heartbeat')
+        url = urljoin(self.base_url, 'venues/TESTEX/heartbeat')
         return requests.get(url).json()['ok']
 
     def venue_stocks(self):
@@ -41,7 +41,7 @@ class Stockfighter(object):
         
         https://starfighter.readme.io/docs/list-stocks-on-venue
         """
-        url = urlparse.urljoin(self.base_url, 'venues/{0}/heartbeat'.format(self.venue))
+        url = urljoin(self.base_url, 'venues/{0}/heartbeat'.format(self.venue))
         return requests.get(url).json()
 
     def orderbook_for_stock(self, stock):
@@ -53,7 +53,7 @@ class Stockfighter(object):
             venue=self.venue,
             stock=stock,
         )
-        url = urlparse.urljoin(self.base_url, url_fragment)
+        url = urljoin(self.base_url, url_fragment)
         return requests.get(url).json()
 
 
@@ -74,7 +74,7 @@ class Stockfighter(object):
           "direction": direction,
           "orderType": order_type,
         }
-        url = urlparse.urljoin(self.base_url, url_fragment)
+        url = urljoin(self.base_url, url_fragment)
         resp = requests.post(url, data=data, headers=self.headers)
         try:
             return resp.json()
@@ -90,7 +90,7 @@ class Stockfighter(object):
             venue=self.venue,
             stock=stock,
         )
-        url = urlparse.urljoin(self.base_url, url_fragment)
+        url = urljoin(self.base_url, url_fragment)
         return requests.get(url).json()
 
     def status_for_order(self, order_id, stock):
@@ -103,7 +103,7 @@ class Stockfighter(object):
             stock=stock,
             order_id=order_id,
         )
-        url = urlparse.urljoin(self.base_url, url_fragment)
+        url = urljoin(self.base_url, url_fragment)
         return requests.get(url).json()
 
     def cancel_order(self, order_id, stock):
@@ -116,7 +116,7 @@ class Stockfighter(object):
             stock=stock,
             order_id=order_id,
         )
-        url = urlparse.urljoin(self.base_url, url_fragment)
+        url = urljoin(self.base_url, url_fragment)
         return requests.delete(url, headers=self.headers).json()
 
     def status_for_all_orders(self):
@@ -128,7 +128,7 @@ class Stockfighter(object):
             venue=self.venue,
             account=self.account,
         )
-        url = urlparse.urljoin(self.base_url, url_fragment)
+        url = urljoin(self.base_url, url_fragment)
         return requests.get(url).json()
 
     def status_for_all_orders_in_a_stock(self, stock):
@@ -141,5 +141,5 @@ class Stockfighter(object):
             venue=self.venue,
             account=self.account,
         )
-        url = urlparse.urljoin(self.base_url, url_fragment)
+        url = urljoin(self.base_url, url_fragment)
         return requests.get(url).json()

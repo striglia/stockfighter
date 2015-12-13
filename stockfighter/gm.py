@@ -1,6 +1,6 @@
 import os
 import requests
-from future.moves.urllib.parse import urlparse
+from six.moves.urllib.parse import urljoin
 
 
 class GM(object):
@@ -11,21 +11,21 @@ class GM(object):
         self.headers = {'Cookie': 'api_key={api_key}'.format(api_key=self.api_key)}
 
     def start(self):
-        url = urlparse.urljoin(self.base_url, 'levels/first_steps')
+        url = urljoin(self.base_url, 'levels/first_steps')
         resp = requests.post(url, headers=self.headers)
         return resp.json()
 
     def restart(self, instance_id):
-        url = urlparse.urljoin(self.base_url, 'instances/{instance_id}/restart'.format(instance_id))
+        url = urljoin(self.base_url, 'instances/{instance_id}/restart'.format(instance_id))
         resp = requests.post(url, headers=self.headers)
         return resp.json()
 
     def stop(self, instance_id):
-        url = urlparse.urljoin(self.base_url, 'instances/{instance_id}/stop'.format(instance_id))
+        url = urljoin(self.base_url, 'instances/{instance_id}/stop'.format(instance_id))
         resp = requests.post(url, headers=self.headers)
         return resp.json()
 
     def resume(self, instance_id):
-        url = urlparse.urljoin(self.base_url, 'instances/{instance_id}'.format(instance_id))
+        url = urljoin(self.base_url, 'instances/{instance_id}'.format(instance_id))
         resp = requests.get(url, headers=self.headers)
         return resp.json()

@@ -2,6 +2,11 @@
 History
 =======
 
+0.2.2 (2015-12-11)
+------------------
+
+* Make py2 and py3 compatibility a thing, guaranteed by Tox and Travis.
+
 0.2.1 (2015-12-11)
 ------------------
 

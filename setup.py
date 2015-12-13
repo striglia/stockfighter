@@ -16,6 +16,7 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     'requests',
+    'six',
 ]
 
 test_requirements = [
@@ -24,7 +25,7 @@ test_requirements = [
 
 setup(
     name='stockfighter',
-    version='0.2.1',
+    version='0.2.2',
     description="API wrapper for Stockfighter",
     long_description=readme + '\n\n' + history,
     author="Scott Triglia",
