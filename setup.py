@@ -24,7 +24,7 @@ test_requirements = [
 
 setup(
     name='stockfighter',
-    version='0.2.0',
+    version='0.2.1',
     description="API wrapper for Stockfighter",
     long_description=readme + '\n\n' + history,
     author="Scott Triglia",
