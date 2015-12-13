@@ -18,6 +18,21 @@ API wrapper for Stockfighter
 * Free software: ISC license
 * Documentation someday at: https://stockfighter.readthedocs.org.
 
+Get things started
+--------
+
+Not hard!
+
+.. code-block:: shell
+
+    pip install stockfighter
+
+.. code-block:: python
+
+    from stockfighter import Stockfighter
+    s = Stockfighter(venue='TESTEX', account='EXB123456')
+    print s.venue_stocks()
+
 Features
 --------
 
