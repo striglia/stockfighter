@@ -7,24 +7,19 @@ test_stockfighter
 
 Tests for `stockfighter` module.
 """
+import os
+import pytest
+from stockfighter.stockfighter import Stockfighter
 
-import unittest
-
-from stockfighter import stockfighter
-
-
-class TestStockfighter(unittest.TestCase):
-
-    def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    def test_000_something(self):
-        pass
+@pytest.fixture
+def client():
+    return Stockfighter(
+        os.environ['API_KEY'],
+        venue='TESTEX',
+        account='EXB123456',
+    )
 
 
-if __name__ == '__main__':
-    import sys
-    sys.exit(unittest.main())
+def test_heartbeat(client):
+    assert client.heartbeat() is True
+
