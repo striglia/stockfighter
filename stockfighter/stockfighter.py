@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
-import urlparse
+from future.moves.urllib.parse import urlparse
 import requests
 
 

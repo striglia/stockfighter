@@ -1,6 +1,6 @@
 import os
 import requests
-import urlparse
+from future.moves.urllib.parse import urlparse
 
 
 class GM(object):
