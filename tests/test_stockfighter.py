@@ -27,22 +27,25 @@ def test_venue_healthcheck(client):
     assert client.venue_healthcheck() is True
 
 def test_venue_stocks(client):
-    assert client.venue_stocks()
+    assert client.venue_stocks()['ok'] is True
 
 def test_orderbook_for_stock(client):
-    assert client.orderbook_for_stock(STOCK)
+    assert client.orderbook_for_stock(STOCK)['ok'] is True
 
 def test_place_new_order(client):
-    assert client.place_new_order(
+    resp = client.place_new_order(
         stock=STOCK,
         price=500,  # Ignored for this market type
         qty=10,
         direction='buy',
         order_type='market',
     )
+    print(resp)
+    import pdb; pdb.set_trace()
+    assert resp['ok'] is True
 
 def test_quote_for_stock(client):
-    assert client.quote_for_stock(stock=STOCK)
+    assert client.quote_for_stock(stock=STOCK)['ok'] is True
 
 def test_readme():
     """Test the content of the README works as advertised."""
