@@ -14,12 +14,32 @@ from stockfighter.stockfighter import Stockfighter
 @pytest.fixture
 def client():
     return Stockfighter(
-        os.environ['API_KEY'],
         venue='TESTEX',
         account='EXB123456',
     )
+STOCK = 'FOOBAR'
 
 
 def test_heartbeat(client):
     assert client.heartbeat() is True
 
+def test_venue_healthcheck(client):
+    assert client.venue_healthcheck() is True
+
+def test_venue_stocks(client):
+    assert client.venue_stocks()
+
+def test_orderbook_for_stock(client):
+    assert client.orderbook_for_stock(STOCK)
+
+def test_place_new_order(client):
+    assert client.place_new_order(
+        stock=STOCK,
+        price=500,  # Ignored for this market type
+        qty=10,
+        direction='buy',
+        order_type='market',
+    )
+
+def test_quote_for_stock(client):
+    assert client.quote_for_stock(stock=STOCK)
