@@ -43,3 +43,9 @@ def test_place_new_order(client):
 
 def test_quote_for_stock(client):
     assert client.quote_for_stock(stock=STOCK)
+
+def test_readme():
+    """Test the content of the README works as advertised."""
+    from stockfighter import Stockfighter
+    s = Stockfighter(venue='TESTEX', account='EXB123456')
+    print s.venue_stocks()
