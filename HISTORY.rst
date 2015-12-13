@@ -2,6 +2,11 @@
 History
 =======
 
+0.2.2 (2015-12-12)
+------------------
+
+* Fix testing and implementation for place_order
+
 0.2.2 (2015-12-11)
 ------------------
 
