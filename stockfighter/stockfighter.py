@@ -16,6 +16,10 @@ class Stockfighter(object):
         else:
             self.api_key = os.environ['API_KEY']
 
+        self.headers = {
+          'X-Starfighter-Authorization': self.api_key
+        }
+
     def heartbeat(self):
         """Check The API Is Up.
         
@@ -70,11 +74,12 @@ class Stockfighter(object):
           "direction": direction,
           "orderType": order_type,
         }
-        headers = {
-          'X-Starfighter-Authorization': self.api_key
-        }
         url = urlparse.urljoin(self.base_url, url_fragment)
-        return requests.put(url, data=data).json()
+        resp = requests.post(url, data=data, headers=self.headers)
+        try:
+            return resp.json()
+        except:
+            import pdb; pdb.set_trace()
 
     def quote_for_stock(self, stock):
         """Get a quick look at the most recent trade information for a stock.
@@ -112,7 +117,7 @@ class Stockfighter(object):
             order_id=order_id,
         )
         url = urlparse.urljoin(self.base_url, url_fragment)
-        return requests.delete(url).json()
+        return requests.delete(url, headers=self.headers).json()
 
     def status_for_all_orders(self):
         """Status for all orders

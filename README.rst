@@ -16,12 +16,14 @@ Stockfighter
 API wrapper for Stockfighter
 
 * Free software: ISC license
-* Documentation: https://stockfighter.readthedocs.org.
+* Documentation someday at: https://stockfighter.readthedocs.org.
 
 Features
 --------
 
-* TODO
+* Calling the API is pretty important :)
+* .....get back to me later on what else
+
 
 Credits
 ---------
