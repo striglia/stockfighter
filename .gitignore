@@ -54,6 +54,8 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+docs/stockfighter.rst
+docs/modules.rst
 
 # PyBuilder
 target/

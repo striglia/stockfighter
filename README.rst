@@ -19,7 +19,7 @@ API wrapper for Stockfighter
 * Documentation someday at: https://stockfighter.readthedocs.org.
 
 Get things started
---------
+--------------------
 
 Not hard!
 
@@ -27,14 +27,24 @@ Not hard!
 
     pip install stockfighter
 
+Using the standard API
+
 .. code-block:: python
 
     from stockfighter import Stockfighter
     s = Stockfighter(venue='TESTEX', account='EXB123456')
     print s.venue_stocks()
 
+...and the GM API for managing levels and such
+
+.. code-block:: python
+
+    from stockfighter import GM
+    gm = GM()
+    print gm.start('first_steps')  # Start the first level programmatically
+
 Features
---------
+--------------------
 
 * Calling the API is pretty important :)
 * .....get back to me later on what else

@@ -50,3 +50,6 @@ def test_readme():
     from stockfighter import Stockfighter
     s = Stockfighter(venue='TESTEX', account='EXB123456')
     print s.venue_stocks()
+
+    from stockfighter import GM
+    gm = GM()
