@@ -2,6 +2,18 @@
 History
 =======
 
+0.2.4 (2015-12-12)
+------------------
+
+* Fix some outlying GM implementation bugs
+* Add test for basic GM client object instantiation
+
+0.2.3 (2015-12-12)
+------------------
+
+* Tests now also assert the API is responding w/ good "ok" values, not just HTTP 200s.
+* Py 3.5 testing included
+
 0.2.2 (2015-12-12)
 ------------------
 
