@@ -46,5 +46,6 @@ Using the standard API
 Features
 --------------------
 
-* Calling the API is pretty important :)
+* Calling the core Stockfighter API is pretty important :)
+* Includes some rudimentary support for the GM API, such as it is known
 * .....get back to me later on what else

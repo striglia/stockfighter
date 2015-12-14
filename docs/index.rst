@@ -6,14 +6,15 @@
 Welcome to Stockfighter's documentation!
 ======================================
 
-Contents:
+.. include:: ../README.rst
+
+
+Other links
+===========
 
 .. toctree::
    :maxdepth: 2
 
-   readme
-   installation
-   usage
    contributing
    authors
    history
