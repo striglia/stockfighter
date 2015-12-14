@@ -41,7 +41,7 @@ class Stockfighter(object):
 
         https://starfighter.readme.io/docs/list-stocks-on-venue
         """
-        url = urljoin(self.base_url, 'venues/{0}/heartbeat'.format(self.venue))
+        url = urljoin(self.base_url, 'venues/{0}/stocks'.format(self.venue))
         return requests.get(url).json()
 
     def orderbook_for_stock(self, stock):
