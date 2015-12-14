@@ -33,7 +33,7 @@ Using the standard API
 
     from stockfighter import Stockfighter
     s = Stockfighter(venue='TESTEX', account='EXB123456')
-    print s.venue_stocks()
+    print(s.venue_stocks())
 
 ...and the GM API for managing levels and such
 
