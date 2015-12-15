@@ -10,4 +10,5 @@ Development Lead
 Contributors
 ------------
 
-None yet. Why not be the first?
+* Gergely Imreh (imrehg@gmail.com)
+* Chris Hepner (chrishepner on Github)
