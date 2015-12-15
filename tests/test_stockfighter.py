@@ -42,6 +42,26 @@ def test_place_new_order(client):
     )
     assert resp
 
+def test_place_new_order_limit_buy(client):
+    resp = client.place_new_order(
+        stock=STOCK,
+        price=500,
+        qty=10,
+        direction='buy',
+        order_type='limit',
+    )
+    assert resp['ok']
+
+def test_place_new_order_limit_sell(client):
+    resp = client.place_new_order(
+        stock=STOCK,
+        price=500,
+        qty=10,
+        direction='sell',
+        order_type='limit',
+    )
+    assert resp['ok']
+
 def test_quote_for_stock(client):
     assert client.quote_for_stock(stock=STOCK)['ok'] is True
 

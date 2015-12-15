@@ -2,6 +2,11 @@
 History
 =======
 
+0.2.6 (2015-12-14)
+------------------
+
+* Fix place_new_order to actually pass price. Novel!
+
 0.2.5 (2015-12-14)
 ------------------
 
