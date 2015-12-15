@@ -80,6 +80,7 @@ class Stockfighter(object):
         )
         data = {
           "stock": stock,
+          "price": price,
           "venue": self.venue,
           "account": self.account,
           "qty": qty,
