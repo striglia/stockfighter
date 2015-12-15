@@ -49,7 +49,6 @@ def test_readme():
     """Test the content of the README works as advertised."""
     from stockfighter import Stockfighter
     s = Stockfighter(venue='TESTEX', account='EXB123456')
-    print(s.venue_stocks())
 
     from stockfighter import GM
     gm = GM()
