@@ -32,7 +32,7 @@ Using the standard API
 .. code-block:: python
 
     from stockfighter import Stockfighter
-    s = Stockfighter(venue='TESTEX', account='EXB123456')
+    s = Stockfighter(venue='TESTEX', account='EXB123456', api_key='123456')
     print(s.venue_stocks())
 
 ...and the GM API for managing levels and such
@@ -40,8 +40,12 @@ Using the standard API
 .. code-block:: python
 
     from stockfighter import GM
-    gm = GM()
+    gm = GM(api_key=123456)
     print gm.start('first_steps')  # Start the first level programmatically
+
+For simplicity (and so you can share your code!) the GM and Stockfighter
+clients will also default to reading api keys from the environment variable
+API_KEY, if none was passed.
 
 Features
 --------------------

@@ -68,7 +68,7 @@ def test_quote_for_stock(client):
 def test_readme():
     """Test the content of the README works as advertised."""
     from stockfighter import Stockfighter
-    s = Stockfighter(venue='TESTEX', account='EXB123456')
+    s = Stockfighter(venue='TESTEX', account='EXB123456', api_key='123456')
 
     from stockfighter import GM
-    gm = GM()
+    gm = GM(api_key='123456')
