@@ -101,7 +101,7 @@ class Stockfighter(object):
             order_id=order_id,
         )
         url = urljoin(self.base_url, url_fragment)
-        return requests.get(url).json()
+        return requests.get(url, headers=self.headers).json()
 
     def cancel_order(self, order_id, stock):
         """Cancel An Order
