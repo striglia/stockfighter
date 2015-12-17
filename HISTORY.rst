@@ -2,6 +2,11 @@
 History
 =======
 
+0.2.7 (in-progress)
+------------------
+
+* Fix status_for_all_orders_in_a_stock URL
+
 0.2.6 (2015-12-14)
 ------------------
 
