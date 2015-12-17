@@ -146,7 +146,7 @@ class Stockfighter(object):
 
         https://starfighter.readme.io/docs/status-for-all-orders-in-a-stock
         """
-        url_fragment = 'venues/{venue}/stocks/{stock}/accounts/{account}/stock/{stock}/orders'.format(
+        url_fragment = 'venues/{venue}/accounts/{account}/stocks/{stock}/orders'.format(
             stock=stock,
             venue=self.venue,
             account=self.account,
