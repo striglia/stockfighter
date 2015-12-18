@@ -30,21 +30,21 @@ class GM(object):
         return resp.json()
 
     def restart(self, instance_id):
-        url = urljoin(self.base_url, 'instances/{instance_id}/restart'.format(instance_id))
+        url = urljoin(self.base_url, 'instances/{instance_id}/restart'.format(instance_id=instance_id))
         resp = requests.post(url, headers=self.headers)
         return resp.json()
 
     def stop(self, instance_id):
-        url = urljoin(self.base_url, 'instances/{instance_id}/stop'.format(instance_id))
+        url = urljoin(self.base_url, 'instances/{instance_id}/stop'.format(instance_id=instance_id))
         resp = requests.post(url, headers=self.headers)
         return resp.json()
 
     def resume(self, instance_id):
-        url = urljoin(self.base_url, 'instances/{instance_id}/resume'.format(instance_id))
+        url = urljoin(self.base_url, 'instances/{instance_id}/resume'.format(instance_id=instance_id))
         resp = requests.post(url, headers=self.headers)
         return resp.json()
 
     def check(self, instance_id):
-        url = urljoin(self.base_url, 'instances/{instance_id}'.format(instance_id))
+        url = urljoin(self.base_url, 'instances/{instance_id}'.format(instance_id=instance_id))
         resp = requests.get(url, headers=self.headers)
         return resp.json()
