@@ -6,6 +6,7 @@ History
 ------------------
 
 * Fix status_for_all_orders_in_a_stock URL
+* Fix GM restart/resume/etc failing due to broken format strings
 
 0.2.6 (2015-12-14)
 ------------------
