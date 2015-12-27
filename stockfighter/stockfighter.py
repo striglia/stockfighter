@@ -16,21 +16,10 @@ class Stockfighter(object):
         else:
             self.api_key = os.environ['API_KEY']
 
-        self.headers = {
-          'X-Starfighter-Authorization': self.api_key
-        }
-
-    def _get(self, *args, **kwargs):
-        kwargs['headers'] = self.headers if 'headers' not in kwargs else kwargs['headers']
-        return requests.get(*args, **kwargs)
-
-    def _post(self, *args, **kwargs):
-        kwargs['headers'] = self.headers if 'headers' not in kwargs else kwargs['headers']
-        return requests.post(*args, **kwargs)
-
-    def _delete(self, *args, **kwargs):
-        kwargs['headers'] = self.headers if 'headers' not in kwargs else kwargs['headers']
-        return requests.delete(*args, **kwargs)
+        self.session = requests.Session()
+        self.session.headers.update({
+            'X-Starfighter-Authorization': self.api_key
+        })
 
     def heartbeat(self):
         """Check The API Is Up.
@@ -38,7 +27,7 @@ class Stockfighter(object):
         https://starfighter.readme.io/docs/heartbeat
         """
         url = urljoin(self.base_url, 'heartbeat')
-        return self._get(url).json()['ok']
+        return self.session.get(url).json()['ok']
 
     def venue_healthcheck(self):
         """Check A Venue Is Up.
@@ -46,7 +35,7 @@ class Stockfighter(object):
         https://starfighter.readme.io/docs/venue-healthcheck
         """
         url = urljoin(self.base_url, 'venues/TESTEX/heartbeat')
-        return self._get(url).json()['ok']
+        return self.session.get(url).json()['ok']
 
     def venue_stocks(self):
         """List the stocks available for trading on the venue.
@@ -54,7 +43,7 @@ class Stockfighter(object):
         https://starfighter.readme.io/docs/list-stocks-on-venue
         """
         url = urljoin(self.base_url, 'venues/{0}/stocks'.format(self.venue))
-        return self._get(url).json()
+        return self.session.get(url).json()
 
     def orderbook_for_stock(self, stock):
         """Get the orderbook for a particular stock.
@@ -66,8 +55,7 @@ class Stockfighter(object):
             stock=stock,
         )
         url = urljoin(self.base_url, url_fragment)
-        return self._get(url).json()
-
+        return self.session.get(url).json()
 
     def place_new_order(self, stock, price, qty, direction, order_type):
         """Place an order for a stock.
@@ -88,7 +76,7 @@ class Stockfighter(object):
           "orderType": order_type,
         }
         url = urljoin(self.base_url, url_fragment)
-        resp = self._post(url, json=data)
+        resp = self.session.post(url, json=data)
         return resp.json()
 
     def quote_for_stock(self, stock):
@@ -101,7 +89,7 @@ class Stockfighter(object):
             stock=stock,
         )
         url = urljoin(self.base_url, url_fragment)
-        return self._get(url).json()
+        return self.session.get(url).json()
 
     def status_for_order(self, order_id, stock):
         """Status For An Existing Order
@@ -114,7 +102,7 @@ class Stockfighter(object):
             order_id=order_id,
         )
         url = urljoin(self.base_url, url_fragment)
-        return self._get(url).json()
+        return self.session.get(url).json()
 
     def cancel_order(self, order_id, stock):
         """Cancel An Order
@@ -127,7 +115,7 @@ class Stockfighter(object):
             order_id=order_id,
         )
         url = urljoin(self.base_url, url_fragment)
-        return self._delete(url, headers=self.headers).json()
+        return self.session.delete(url).json()
 
     def status_for_all_orders(self):
         """Status for all orders
@@ -139,7 +127,7 @@ class Stockfighter(object):
             account=self.account,
         )
         url = urljoin(self.base_url, url_fragment)
-        return self._get(url, headers=self.headers).json()
+        return self.session.get(url).json()
 
     def status_for_all_orders_in_a_stock(self, stock):
         """Status for all orders in a stock
@@ -152,4 +140,4 @@ class Stockfighter(object):
             account=self.account,
         )
         url = urljoin(self.base_url, url_fragment)
-        return self._get(url).json()
+        return self.session.get(url).json()
