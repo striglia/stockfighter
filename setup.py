@@ -14,15 +14,6 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [
-    'requests',
-    'six',
-]
-
-test_requirements = [
-    'pytest',
-]
-
 setup(
     name='stockfighter',
     version='0.2.7',
@@ -31,18 +22,18 @@ setup(
     author="Scott Triglia",
     author_email='scott.triglia@gmail.com',
     url='https://github.com/striglia/stockfighter',
-    packages=[
-        'stockfighter',
-    ],
-    package_dir={'stockfighter':
-                 'stockfighter'},
+    packages=['stockfighter'],
+    package_dir={'stockfighter': 'stockfighter'},
     include_package_data=True,
-    install_requires=requirements,
+    install_requires=[
+        'requests>=2.4.2',
+        'six',
+    ],
     license="ISCL",
     zip_safe=False,
     keywords='stockfighter',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: ISC License (ISCL)',
         'Natural Language :: English',
@@ -55,5 +46,5 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
     test_suite='tests',
-    tests_require=test_requirements
+    tests_require=[],
 )
