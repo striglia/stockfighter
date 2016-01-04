@@ -11,4 +11,6 @@ Contributors
 ------------
 
 * Gergely Imreh (imrehg@gmail.com)
-* Chris Hepner (chrishepner on Github)
+* Chris Hepner (chrishepner)
+* Zhen Wang (nehz)
+* Kornelijus Survila (kornholi)
